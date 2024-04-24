@@ -34,6 +34,9 @@ gcloud projects add-iam-policy-binding [PROJECT_NAME] --member "[MAIL_ADDRESS]" 
 gcloud projects describe [PROJECT_ID]/[PROJECT_NAME]
 
 gcloud config configurations create
+
+gcloud datastore export gs://[bucket-name] --async
+gcloud artifacts repositories list
 ```
 
 ```
@@ -57,5 +60,54 @@ gsutil acl ch -u allUsers:r gs://[BUCKET_NAME]/[FILE_NAME]
 gsutil iam ch allUsers:objectViewer gs://[BUCKET_NAME]/[FILE_NAME]
 gsutil versioning set on gs://[BUCKET_NAME]
 gsutil mb -c nearline gs://[BUCKET_NAME]
+gsutil mv // rename, move file
 ```
+
+```
+bq
+
+bq query
+bq show
+bq ls
+bq extract
+bq load
+bq update
+```
+
+## Services
+- Big Query: Data Warehouse, analytical platform
+- Cloud DNS: DNS for GCP
+- Cloud Data Fusion: ETL platform
+- Cloud Dataprep: Data preparation service, clean, explore data
+- Cloud Dataproc: Apache Hadoop, Apache Spark
+- Cloud Build: Managed CI/CD service, Jenkins, CircleCI, TravisCI
+- 
+
+## Knowledge
+Network
+- URL maps specify direct requests to particular services. 
+- Routes are used to specify paths to destination IP addresses outside a subnet. 
+- Firewall rules control the flow of traffic on a network. 
+- Traces are used to understand performance characteristics of services in a distributed system.
+
+Load Balancer / Proxy:
+(Internal) HTTP(S) Load Balancing
+SSL Proxy
+TCP Proxy
+Network TCP/UDP Load Balancing
+
+GKE Cluster
+- Single zone: single zone, sinle master
+- Multi zone: multiple zones, single master
+- Regional: multiple zones, multiple master
+
+Kubernetes Services:
+- Headless service is a service without a cluster IP that allows direct communication to individual pods via DNS records, commonly used for stateful applications like databases where each pod represents a unique instance.
+- ClusterIP in Kubernetes is an internal virtual IP address assigned to a service for accessing pods within the cluster.
+- PersistentVolume in Kubernetes is a storage abstraction that provides durable storage resources, decoupled from pods, allowing them to access and persist data across pod restarts or rescheduling events.
+- NodePort in Kubernetes is a service type that exposes an application externally by allocating a static port on each node in the cluster, allowing access to the service from outside the cluster through the node's IP address and the allocated port.
+- LoadBalancer in Kubernetes is a service type that provisions an external load balancer (typically from a cloud provider) to distribute incoming traffic across multiple pods in a service, enabling high availability and scalability of the application.
+
+
+
 
